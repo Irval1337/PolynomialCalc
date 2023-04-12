@@ -217,6 +217,14 @@ public:
     }
     void erase(Node* node) {
         if (node == nullptr) return;
+        if (node == _head) {
+            pop_front(true);
+            return;
+        }
+        if (node == _tail) {
+            pop_back(true);
+            return;
+        }
         if (node->prev != nullptr) node->prev->next = node->next;
         if (node->next != nullptr) node->next->prev = node->prev;
         delete node;
